@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Welcome, Devin!"
+echo "welcome"
 
 if [ -d "/home/devin/bible" ]; then
   cd bible
@@ -8,13 +8,12 @@ if [ -d "/home/devin/bible" ]; then
 else
   mkdir "bible"
   cd bible
-  ls
 fi
 
-echo "Entry? (y/n)"
+echo "entry or other (e/o)"
 read entry
 
-if [ "$entry" = "y" ] || [ "$entry" = "yes" ]; then
+if [ "$entry" = "e" ]; then
   echo "which verse?"
   read verse
   touch "$verse"
@@ -23,14 +22,13 @@ if [ "$entry" = "y" ] || [ "$entry" = "yes" ]; then
   echo "$journal"  > "$verse"
 
 else
-  echo "Inquiry? (y/n)"
-  read inquiry
+  echo "inquiry - i"
+  read response
 
-  if [ "$inquiry" = "y" ] || [ "$inquiry" = "yes" ]; then
+  if [ "$response" = "i" ]; then
     read key
     grep -r "$key" /home/devin/bible  
   else
     exit
   fi
 fi
-
